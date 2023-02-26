@@ -1,5 +1,5 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget.Companion.fromTarget;
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile;
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget.Companion.fromTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
     repositories {
@@ -30,16 +30,20 @@ tasks.test {
     useJUnitPlatform()
 }
 
-val jvmVersion = "19";
+val jvmVersion = "19"
 kotlin {
     jvmToolchain(jvmVersion.toInt())
 }
 
 subprojects {
-    apply(plugin = "org.jetbrains.kotlin.jvm")
-    tasks.withType<KotlinCompile> {
-        compilerOptions {
-            jvmTarget.set(fromTarget(jvmVersion))
+    if (this.name.endsWith("_JS")) {
+        apply(plugin = "org.jetbrains.kotlin.js")
+    } else {
+        apply(plugin = "org.jetbrains.kotlin.jvm")
+        tasks.withType<KotlinCompile> {
+            compilerOptions {
+                jvmTarget.set(fromTarget(jvmVersion))
+            }
         }
     }
 }

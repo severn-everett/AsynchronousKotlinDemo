@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AtomicFU" />
+            <option value="$PROJECT_DIR$/AtomicFU_JS" />
             <option value="$PROJECT_DIR$/Lincheck" />
             <option value="$PROJECT_DIR$/Loom" />
             <option value="$PROJECT_DIR$/RxJava" />
