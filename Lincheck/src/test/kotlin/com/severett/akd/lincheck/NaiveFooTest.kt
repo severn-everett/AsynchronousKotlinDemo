@@ -7,16 +7,24 @@ import org.jetbrains.kotlinx.lincheck.strategy.stress.StressOptions
 import org.jetbrains.kotlinx.lincheck.verifier.VerifierState
 import org.junit.jupiter.api.Test
 
-class NaiveFooTest : VerifierState() {
+class NaiveFooTest {
     private val naiveFoo = NaiveFoo()
     @Operation
     fun incAndGet() = naiveFoo.incAndGet()
     @Operation
     fun get() = naiveFoo.get()
-    override fun extractState() = naiveFoo.get()
 
     @Test
     fun stressTest() = StressOptions().check(this::class.java)
     @Test
     fun modelTest() = ModelCheckingOptions().check(this::class)
+
+    override fun equals(other: Any?): Boolean {
+        // return naiveFoo.get() == other
+        return naiveFoo.get() == (other as? NaiveFooTest)?.get()
+    }
+
+    override fun hashCode(): Int {
+        return naiveFoo.get()
+    }
 }
