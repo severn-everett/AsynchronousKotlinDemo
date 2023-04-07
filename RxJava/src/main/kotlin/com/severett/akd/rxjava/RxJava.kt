@@ -29,12 +29,12 @@ private fun runStream() {
 private fun runRxJava() {
     Observable.fromStream(Stream.iterate(0) { i -> i + 1 })
         .filter { i -> i % 5 != 0 }
-        // .map { i -> if (i == 118) throw Exception("Something bad!") else i to "NUMBER $i" }
-        .map { i -> i to "NUMBER $i" }
+        .map { i -> if (i == 118) throw Exception("Something bad!") else i to "NUMBER $i" }
+        // .map { i -> i to "NUMBER $i" }
         .onErrorComplete { println(it.message); true }
         .take(100)
         .forEach { pair ->
-            if (pair.first == 118) throw Exception("Something bad!")
+            // if (pair.first == 118) throw Exception("Something bad!")
             println("RXJAVA ENTRY: ${pair.second} (i ${pair.first})")
         }
 }
