@@ -5,7 +5,6 @@ import org.jetbrains.kotlinx.lincheck.annotations.Validate
 import org.jetbrains.kotlinx.lincheck.check
 import org.jetbrains.kotlinx.lincheck.strategy.managed.modelchecking.ModelCheckingOptions
 import org.jetbrains.kotlinx.lincheck.strategy.stress.StressOptions
-import org.jetbrains.kotlinx.lincheck.verifier.VerifierState
 import org.junit.jupiter.api.Test
 
 private const val UNINITIALIZED = -1
@@ -13,7 +12,7 @@ private const val UNINITIALIZED = -1
 // Test is based on the example of racy reads in Aleksey Shipilëv's
 // article about the Java memory model:
 // https://shipilev.net/blog/2016/close-encounters-of-jmm-kind/#wishful-hb-actual
-class RacyReadTest : VerifierState() {
+class RacyReadTest {
     // Uncomment to "fix" test and prevent racy reads
     // @Volatile
     private var a = 0
@@ -33,8 +32,6 @@ class RacyReadTest : VerifierState() {
     fun validate() = check(result.first <= result.second) {
         "Racy read occurred - a1:${result.first} | a2:${result.second}"
     }
-
-    override fun extractState() = result
 
     @Test
     fun stressTest() = StressOptions().check(this::class.java)

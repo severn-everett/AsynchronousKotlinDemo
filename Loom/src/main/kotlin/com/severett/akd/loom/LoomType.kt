@@ -23,3 +23,7 @@ class LoomType : IType {
         return counter.get()
     }
 }
+
+fun main() {
+    LoomType().run(TIMES)
+}

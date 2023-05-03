@@ -8,7 +8,7 @@ repositories {
 dependencies {
     val junitVersion: String by project
     testImplementation("org.jctools:jctools-core:4.0.1")
-    testImplementation("org.jetbrains.kotlinx:lincheck:2.16")
+    testImplementation("org.jetbrains.kotlinx:lincheck:2.17")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
@@ -26,6 +26,5 @@ tasks.getByName<Test>("test") {
         // "-XX:+UnlockDiagnosticVMOptions",
         // "-XX:+StressLCM",
         // "-XX:+StressGCM",
-        // "-XX:-EliminateLocks",
     )
 }

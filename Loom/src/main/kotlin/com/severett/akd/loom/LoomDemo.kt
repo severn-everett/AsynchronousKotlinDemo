@@ -1,6 +1,6 @@
 package com.severett.akd.loom
 
-private const val TIMES = 10000
+const val TIMES = 1_000_000
 
 fun main() {
     val coroutineType = CoroutineType()

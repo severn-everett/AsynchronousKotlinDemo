@@ -7,6 +7,7 @@ import java.time.Instant
 import java.util.concurrent.atomic.AtomicLong
 
 class CoroutineType : IType {
+    @Suppress("DuplicatedCode")
     override fun run(times: Int): Long {
         return runBlocking {
             val counter = AtomicLong(0L)
@@ -25,4 +26,8 @@ class CoroutineType : IType {
             counter.get()
         }
     }
+}
+
+fun main() {
+    CoroutineType().run(TIMES)
 }

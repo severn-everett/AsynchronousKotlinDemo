@@ -31,3 +31,7 @@ class HybridType : IType {
         }
     }
 }
+
+fun main() {
+    HybridType().run(TIMES)
+}

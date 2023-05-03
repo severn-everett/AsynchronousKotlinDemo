@@ -23,3 +23,7 @@ class ThreadType : IType {
         return counter.get()
     }
 }
+
+fun main() {
+    ThreadType().run(TIMES)
+}
