@@ -51,7 +51,7 @@ class LoomBenchmark {
 
     @Benchmark
     fun loom(blackhole: Blackhole) {
-        (0 until repeat).map { i ->
+        (0..<repeat).map { i ->
             executorService.submit {
                 Thread.sleep(delay)
                 blackhole.consume(i)
@@ -62,7 +62,7 @@ class LoomBenchmark {
     @Benchmark
     fun coroutines(blackhole: Blackhole) {
         runBlocking {
-            (0 until repeat).map { i ->
+            (0..<repeat).map { i ->
                 launch {
                     delay(delay)
                     blackhole.consume(i)
@@ -74,7 +74,7 @@ class LoomBenchmark {
     @Benchmark
     fun hybrid(blackhole: Blackhole) {
         runBlocking(executorCoroutineDispatcher) {
-            (0 until repeat).map { i ->
+            (0..<repeat).map { i ->
                 launch {
                     delay(delay)
                     blackhole.consume(i)

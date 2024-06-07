@@ -9,7 +9,7 @@ class LoomType : IType {
     override fun run(times: Int): Long {
         val counter = AtomicLong(0L)
         println("Loom - Started loop at ${Instant.now()}")
-        (0 until times).map {
+        (0..<times).map {
             startVirtualThread {
                 sleep(33L)
                 counter.incrementAndGet()

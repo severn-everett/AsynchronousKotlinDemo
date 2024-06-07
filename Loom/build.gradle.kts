@@ -1,7 +1,7 @@
 import org.gradle.api.tasks.compile.JavaCompile
 
 plugins {
-    kotlin("plugin.allopen") version "1.8.20"
+    kotlin("plugin.allopen") version "2.0.0"
     id("org.jetbrains.kotlinx.benchmark") version "0.4.7"
 }
 
@@ -35,6 +35,7 @@ tasks {
 }
 
 dependencies {
+    val coroutinesVersion: String by project
     implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.7")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 }

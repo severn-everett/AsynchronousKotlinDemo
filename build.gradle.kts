@@ -7,12 +7,12 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.20.2")
+        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.24.0")
     }
 }
 
 plugins {
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm") version "2.0.0"
 }
 
 group = "com.severett.akd"
@@ -30,14 +30,14 @@ tasks.test {
     useJUnitPlatform()
 }
 
-val jvmVersion = "19"
+val jvmVersion = "21"
 kotlin {
     jvmToolchain(jvmVersion.toInt())
 }
 
 subprojects {
     if (this.name.endsWith("_JS")) {
-        apply(plugin = "org.jetbrains.kotlin.js")
+        apply(plugin = "org.jetbrains.kotlin.multiplatform")
     } else {
         apply(plugin = "org.jetbrains.kotlin.jvm")
         tasks.withType<KotlinCompile> {

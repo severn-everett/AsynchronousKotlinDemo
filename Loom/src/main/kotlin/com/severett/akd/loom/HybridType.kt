@@ -15,7 +15,7 @@ class HybridType : IType {
             runBlocking {
                 val counter = AtomicLong(0L)
                 println("Hybrid - Started loop at ${Instant.now()}")
-                (0 until times).map {
+                (0..<times).map {
                     launch {
                         delay(33L)
                         counter.incrementAndGet()

@@ -10,7 +10,7 @@ class Foo {
     private var unsafeCounter = 0
 
     suspend fun run() {
-        (0 until 10_000).map {
+        (0..<10_000).map {
             CoroutineScope(Dispatchers.Default).launch {
                 safeCounter += 1
                 unsafeCounter += 1

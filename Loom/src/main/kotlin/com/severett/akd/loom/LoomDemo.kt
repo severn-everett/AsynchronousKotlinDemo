@@ -7,8 +7,8 @@ fun main() {
     val hybridType = HybridType()
     val loomType = LoomType()
     val threadType = ThreadType()
-    coroutineType.run(TIMES)
-    // hybridType.run(TIMES)
+    // coroutineType.run(TIMES)
+    hybridType.run(TIMES)
     // loomType.run(TIMES)
     // threadType.run(TIMES)
 }

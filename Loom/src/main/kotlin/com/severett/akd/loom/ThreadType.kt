@@ -9,7 +9,7 @@ class ThreadType : IType {
     override fun run(times: Int): Long {
         val counter = AtomicLong(0L)
         println("Threads - Started loop at ${Instant.now()}")
-        (0 until times).map {
+        (0..<times).map {
             thread {
                 sleep(33L)
                 counter.incrementAndGet()

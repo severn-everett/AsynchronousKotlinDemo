@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AtomicFU_JS-js-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/AtomicFU_JS/build/libs</output-path>
+    <root id="archive" name="AtomicFU_JS-js-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="AsynchronousKotlinDemo.AtomicFU_JS.jsMain" />
+    </root>
+  </artifact>
+</component>

@@ -8,7 +8,7 @@ class Foo {
     private var unsafeCounter = 0
 
     suspend fun run() {
-        (0 until 1000).map {
+        (0..<1000).map {
             CoroutineScope(Dispatchers.Default).launch {
                 safeCounter += 1
                 unsafeCounter += 1
@@ -17,8 +17,4 @@ class Foo {
         println("Safe counter: ${safeCounter.value}")
         println("Unsafe counter: $unsafeCounter")
     }
-}
-
-suspend fun main() {
-    Foo().run()
 }
